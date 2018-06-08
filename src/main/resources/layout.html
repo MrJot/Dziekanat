@@ -1,0 +1,36 @@
+<html style="text-align:center;" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+		<link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+		<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Wirtualny dziekanat</title>
+</head>
+
+<body bgcolor="#E5E7E9">	
+<div align="center"> 
+<br/>
+		<h2> Wirtualny dziekanat <span id="the-title" layout:fragment="pageTitle" /> </h2>
+		<h5> Zalogowany jako: <span th:text="${session.userLogin}" /> </h5>
+		<h4 th:text="${message}" style='color:#c00' />
+		
+	<br/>
+
+	<table style="width:80%; BORDER: RGB(137,155,175) 3px solid;">
+		<tr style="margin: 8px; background-color:darkgray">
+			<td align='center'>
+			
+				<div id="the-content" layout:fragment="content">
+					Static content - never visible 
+	   			</div>
+
+			</td>
+		</tr>
+	</table>
+</div>
+<br/>	<br/>	<br/>	<br/>
+<hr />
+Wirtualny Dziekanat - Wersja demonstracyjna
+</body>
+</html>

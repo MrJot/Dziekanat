@@ -26,19 +26,19 @@
 		        <td>
 		            <form action="ModifyStudent" method="POST">
 		            	<input type="hidden" name="studentId" th:value="${student.id}" />
-		                <button type="submit">Modify</button>
+		                <button class="add-button" type="submit">Modify</button>
 		            </form>
 		        </td>
 		        <td>
 		            <form action="DeleteStudent" method="POST">
 		            	<input type="hidden" name="studentId" th:value="${student.id}" />
-		                <button type="submit">Usun</button>
+		                <button class = "add-button" type="submit">Usun</button>
 		            </form>
 				</td>
 				<td>
 		            <form action="showGrades" method="POST">
 		            	<input type="hidden" name="studentId" th:value="${student.id}" />
-		                <button type="submit">Pokaz Oceny</button>
+		                <button class="add-button" type="submit">Pokaz Oceny</button>
 		            </form>
 		        </td>
 			</tr>

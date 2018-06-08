@@ -15,6 +15,7 @@
 						<tr><td>Rok studiów:</td><td><input type="text" name="studentYear" th:value="${studentYear}" /></td></tr>
 						<tr><td>Grupa Dziekanatowa:</td><td><select class="form-control" name="studentDegreeGroupName" id="studentDegreeGroupName">
 							<option value="-1">---</option>
+							
 							<option th:each="studentGr: ${studentGroups}" th:value="${studentGr.id}" th:text="${studentGr.name}"></option>
 												</select></td></tr>
 					</table><br/><BR/>

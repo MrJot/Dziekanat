@@ -19,8 +19,14 @@
 				
 			</tr>
 		
-		<input type="hidden" name="studentId" th:value="${studentId}" />
-		</table><br/><a href='AddGrade'>Dodaj ocene</a><br/><br/>
+		</table>
+		
+		
+		<br></br>
+		<form action="AddGrade" method="POST">
+				<input type="hidden" name="studentId" th:value="${student.id}" />
+				<button type="submit">Dodaj ocene</button>
+		</form>
 		
     </div>
 

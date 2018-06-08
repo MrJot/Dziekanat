@@ -14,11 +14,15 @@
 			<tr><th>Nazwa Przedmiotu</th></tr>
 			<tr th:each="course: ${courses}">
 				<td><span th:text="${course.name}" /></td>
-				<!-- <td><span th:text="none"/></td> -->
 			</tr>
-		
-		<input type="hidden" name="teacherId" th:value="${teacherId}" />
-		</table><br/><a href='AddCourse'>Dodaj przemiot</a><br/><br/>
+		</table>
+
+	<br></br>
+		<form action="AddCourse" method="POST">
+				<input type="hidden" name="teacherId" th:value="${teacher.id}" />
+				<button type="submit">Dodaj przedmiot</button>
+		</form>
+
 		
     </div>
 

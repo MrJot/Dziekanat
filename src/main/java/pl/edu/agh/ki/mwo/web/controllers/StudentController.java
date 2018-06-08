@@ -60,15 +60,7 @@ public class StudentController {
     	return "studentModForm";
     }
     
-    @RequestMapping(value="/showGrades")
-   public String showMarks(@RequestParam(value="studentId", required=false) String studentId, 
-    		Model model, HttpSession session) {    	
-    	if (session.getAttribute("userLogin") == null)
-    		return "redirect:/Login";
-    	
-    	model.addAttribute("grades", DatabaseConnector.getInstance().getGrades(studentId));
-    	return "studentGrades";
-    }
+
 //    
     @RequestMapping(value="/SaveStudent", method=RequestMethod.POST)
     public String saveStudent(@RequestParam(value="studentName", required=false) String name,
@@ -150,12 +142,36 @@ public class StudentController {
     	return "studentList";
     }
     
+    @RequestMapping(value="/showGrades")
+   public String showMarks(@RequestParam(value="studentId", required=false) String studentId, 
+    		Model model, HttpSession session) {    	
+    	if (session.getAttribute("userLogin") == null)
+    		return "redirect:/Login";
+    	
+    	model.addAttribute("grades", DatabaseConnector.getInstance().getGrades(studentId));
+    	model.addAttribute("student", DatabaseConnector.getInstance().getStudent(studentId));
+    	return "studentGrades";
+    }
+    
+//    @RequestMapping(value="/teacherCourse")
+//   public String showMarks(@RequestParam(value="teacherId", required=false) String teacherId,
+//    		Model model, HttpSession session) {    	
+//    	if (session.getAttribute("userLogin") == null)
+//    		return "redirect:/Login";
+//    	model.addAttribute("teacher",DatabaseConnector.getInstance().getTeacher(teacherId));
+//    	model.addAttribute("courses", DatabaseConnector.getInstance().getTeacherCourse(teacherId));
+//    	return "teacherCourse";
+//    }
+    
+    
     @RequestMapping(value="/AddGrade")
     public String addGrade(
+    		@RequestParam(value="studentId", required=false) String studentId,
     		Model model, HttpSession session) {    	
     	if (session.getAttribute("userLogin") == null)
     		return "redirect:/Login";
     	model.addAttribute("courses", DatabaseConnector.getInstance().getCourses());
+    	model.addAttribute("student", DatabaseConnector.getInstance().getStudent(studentId));
 
         return "gradeForm";    
     }

@@ -13,7 +13,10 @@
 									<option th:each="course: ${courses}" th:value="${course.id}" th:text="${course.name}"></option>
 														</select></td></tr>
 					</table><br/><BR/>
+					
+					<input type="hidden" name="teacherId" th:value="${teacher.id}" />
 					<input type="submit" value="Utwórz"/>
+
 				</form>
     </div>
 

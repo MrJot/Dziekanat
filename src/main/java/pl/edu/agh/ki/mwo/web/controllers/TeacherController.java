@@ -38,7 +38,7 @@ public class TeacherController {
     	if (session.getAttribute("userLogin") == null)
     		return "redirect:/Login";
     	
-        return "teacherForm";    
+        return "teacherForm";
     }
 //    
 //    
@@ -58,15 +58,7 @@ public class TeacherController {
     	return "teacherModForm";
     }
 //    
-    @RequestMapping(value="/teacherCourse")
-   public String showMarks(@RequestParam(value="teacherId", required=false) String teacherId, 
-    		Model model, HttpSession session) {    	
-    	if (session.getAttribute("userLogin") == null)
-    		return "redirect:/Login";
-    	
-    	model.addAttribute("courses", DatabaseConnector.getInstance().getTeacherCourse(teacherId));
-    	return "teacherCourse";
-    }
+
 ////    
     @RequestMapping(value="/SaveTeacher", method=RequestMethod.POST)
     public String saveTeacher(@RequestParam(value="teacherName", required=false) String name,
@@ -134,25 +126,36 @@ public class TeacherController {
     
     
     @RequestMapping(value="/AddCourse")
-    public String addCourse(Model model, HttpSession session) {    	
+    public String addCourse( @RequestParam(value="teacherId", required=false) String teacherId,
+    		Model model, HttpSession session) {    	
     	if (session.getAttribute("userLogin") == null)
     		return "redirect:/Login";
     	model.addAttribute("courses", DatabaseConnector.getInstance().getCourses());
+    	model.addAttribute("teacher", DatabaseConnector.getInstance().getTeacher(teacherId));
         return "courseForm";    
     }
     
     @RequestMapping(value="/SaveTeacherCourse")
     public String saveTeacherCourse(
-    		@RequestParam(value="teacherId", required=false) String teacherId, 
+    		@RequestParam(value="teacherId", required=false) String teacherId,
     		@RequestParam(value="allCourses", required=false) String courseId,
     		Model model, HttpSession session) {    	
     	if (session.getAttribute("userLogin") == null)
     		return "redirect:/Login";
-    	teacherId = "1";
     	DatabaseConnector.getInstance().addCourseToTeacher(teacherId, courseId);
     	
     	model.addAttribute("teachers", DatabaseConnector.getInstance().getTeachers());
         return "teacherList";    
+    }
+    
+    @RequestMapping(value="/teacherCourse")
+   public String showMarks(@RequestParam(value="teacherId", required=false) String teacherId,
+    		Model model, HttpSession session) {    	
+    	if (session.getAttribute("userLogin") == null)
+    		return "redirect:/Login";
+    	model.addAttribute("teacher",DatabaseConnector.getInstance().getTeacher(teacherId));
+    	model.addAttribute("courses", DatabaseConnector.getInstance().getTeacherCourse(teacherId));
+    	return "teacherCourse";
     }
     
     
