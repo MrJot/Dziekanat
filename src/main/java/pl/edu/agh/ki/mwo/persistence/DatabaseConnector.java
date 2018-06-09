@@ -80,10 +80,7 @@ public class DatabaseConnector {
 		String hql = "FROM StudentGroup";
 		Query query = session.createQuery(hql);
 		List <StudentGroup> schoolClasses = query.list();
-		
-		for(StudentGroup stu: schoolClasses) {
-			System.out.println(stu.getName());
-		}
+	
 		
 		return schoolClasses;
 	}

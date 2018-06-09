@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController { 
 
-    @RequestMapping(value={"/", "/Login"}, method=RequestMethod.GET)
+    @RequestMapping(value={"/", "/Login", "/Logout"}, method=RequestMethod.GET)
     public String displayLoginForm() {
         return "loginForm";
     }
@@ -24,7 +24,7 @@ public class LoginController {
 
     @RequestMapping(value="/Welcome")
     public String welcome(Model model, HttpSession session) {
-    	model.addAttribute("message", "Witamy w systemie Szkoła!");
+    	model.addAttribute("message", "Wirtualny Dziekanat - menu główne");
         return "welcome";
     }
 }

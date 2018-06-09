@@ -28,10 +28,7 @@ public class TeacherController {
         return "teacherList";    
     }
 	
-	
-	
 
-	
     
     @RequestMapping(value="/AddTeacher")
     public String addTeacher(Model model, HttpSession session) {    	
@@ -105,7 +102,7 @@ public class TeacherController {
     	   
     	
        	model.addAttribute("teachers", DatabaseConnector.getInstance().getTeachers());
-    	model.addAttribute("message", "Nowy wykładowca zostal dodany");
+    	model.addAttribute("message", "Nowy wykładowca został dodany");
          	
     	return "teacherList";
     }
@@ -119,7 +116,7 @@ public class TeacherController {
     	
     	DatabaseConnector.getInstance().deleteTeacher(teacherId);  	
        	model.addAttribute("teachers", DatabaseConnector.getInstance().getTeachers());
-    	model.addAttribute("message", "Nauczyciel został usunięty");
+    	model.addAttribute("message", "Wykładowca został usunięty");
          	
     	return "teacherList";
     }

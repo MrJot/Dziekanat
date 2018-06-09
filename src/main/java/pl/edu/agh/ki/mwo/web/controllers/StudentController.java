@@ -120,7 +120,7 @@ public class StudentController {
     	   
     	
        	model.addAttribute("students", DatabaseConnector.getInstance().getStudents());
-    	model.addAttribute("message", "Nowa uczen zostal dodany");
+    	model.addAttribute("message", "Nowy uczeń został dodany");
          	
     	return "studentList";
     }

@@ -16,7 +16,7 @@
 						<tr><td>Grupa Dziekanatowa:</td><td><select class="form-control" name="studentDegreeGroupName" id="studentDegreeGroupName">
 							<option value="-1">---</option>
 							
-							<option th:each="studentGr: ${studentGroups}" th:value="${studentGr.id}" th:text="${studentGr.name}"></option>
+							<option th:each="studentGr: ${studentGroups}" th:value="${studentGr.id}" th:text="${studentGr.name + ' ' + studentGr.degreeCourse.name}"></option>
 												</select></td></tr>
 					</table><br/><BR/>
 					<input type="submit" value="Utwórz"/>
