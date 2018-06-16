@@ -27,4 +27,10 @@ public class LoginController {
     	model.addAttribute("message", "Wirtualny Dziekanat - menu główne");
         return "welcome";
     }
+    
+    @RequestMapping(value="/Sorry")
+    public String sorry(Model model, HttpSession session) {
+    	model.addAttribute("message", "Wirtualny Dziekanat - menu główne");
+        return "sorry";
+    }
 }
