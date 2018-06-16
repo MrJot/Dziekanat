@@ -79,12 +79,19 @@ public class StudentController {
     	
     	
     	Student student = DatabaseConnector.getInstance().getStudent(studentId);
+    	
+    	StudentGroup oldGroup = student.getStudentGroup(); 
     
     	student.setName(name);
     	student.setSurname(surname);
     	student.setAdress(adress);
     	student.setDateOfBirth(dateOfBirth);
-    	student.setStudentGroup(group);
+    	if(group==null) {
+    		student.setStudentGroup(oldGroup);
+    	}else {
+    		student.setStudentGroup(group);	
+    	}
+    	
     	student.setYear(year);
     	
     	   
